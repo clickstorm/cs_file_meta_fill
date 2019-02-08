@@ -1,0 +1,34 @@
+{
+    "name": "clickstorm/cs-file-meta-fill",
+    "type": "typo3-cms-extension",
+    "description": "Automatically generate fluent sys_file_metadata like alternative text",
+    "authors": [
+        {
+            "name": "Pascale Beier",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0 || ^7.1 || ^7.2 || ^7.3",
+        "typo3/cms-core": "^8.7 || ^9.5",
+        "doctrine/inflextor": "^1.0 || ^2.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "nimut/testing-framework": "^1.0 || ^2.0 || ^3.0 || ^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Clickstorm\\CsFileMetaFill\\": "Classes"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Clickstorm\\CsFileMetaFill\\Tests\\": "Tests"
+        }
+    },
+    "replace": {
+        "cs_file_meta_fill": "self.version",
+        "typo3-ter/cs-file-meta-fill": "self.version"
+    }
+}
