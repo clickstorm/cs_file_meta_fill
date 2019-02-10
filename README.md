@@ -10,6 +10,7 @@ e.g. filename: product_red_socks.jpg => alt: Product Red Socks
 
 - There is a Hook included which is called every time a file is updated (via Backend) and is missing title or alternative metadata.
 - There is a Scheduler Task to batch process file_metadata entries
+- It stores the original file names on file uploads and prioritizes these if existent
 
 ## Usage
 
@@ -17,3 +18,7 @@ e.g. filename: product_red_socks.jpg => alt: Product Red Socks
 - Activate the extension
 - Upload or edit any file
 - Close and reopen and see the magic!
+
+## Changelog
+
+You can view the Changelog at [CHANGELOG.md](CHANGELOG.md)
