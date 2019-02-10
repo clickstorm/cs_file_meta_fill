@@ -83,12 +83,20 @@ final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProc
 
         $i = 0;
         foreach ($_FILES as $file) {
-            GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('cs_file_meta_fill')
-                          ->insert('cs_file_meta_fill', [
-                              'original_filename' => FluentImageSourceUtility::getFluentSentence($file['name']),
-                              'final_filename'    => $result[$i][0]->getName(),
-                          ]);
-            $i++;
+            try {
+                GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('cs_file_meta_fill')
+                              ->insert('cs_file_meta_fill', [
+                                  'original_filename' => FluentImageSourceUtility::getFluentSentence($file['name']),
+                                  'final_filename'    => $result[$i][0]->getName(),
+                              ]);
+                $i++;
+            } catch (\Exception $e) {
+                // This is quite tricky to handle, since file uploads were not necessarily successful
+                // or a file with the same constraints might already exist
+                // for now, we will just continue
+                continue;
+            }
+
         }
 
     }
