@@ -13,5 +13,7 @@ call_user_func(function () {
             \Clickstorm\CsFileMetaFill\Hooks\File::class,
             'postFileProcess'
         );
+        // Remember original file name
+        $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_extfilefunc.php']['processData'][] = \Clickstorm\CsFileMetaFill\Hooks\File::class;
     }
 });

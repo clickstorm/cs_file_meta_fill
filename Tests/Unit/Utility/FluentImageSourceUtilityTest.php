@@ -43,7 +43,11 @@ final class FluentImageSourceUtilityTest extends UnitTestCase
             [
                 'Banner Desktop',
                 'banner-desktop',
-            ]
+            ],
+            [
+                'München Säbener Straße Ribéry',
+                'München Säbener Straße Ribéry.doc'
+            ],
         ];
     }
 }

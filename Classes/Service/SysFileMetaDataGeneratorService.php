@@ -11,6 +11,7 @@ namespace Clickstorm\CsFileMetaFill\Service;
  *
  */
 
+use Clickstorm\CsFileMetaFill\Domain\Repository\OriginalFileNameRepository;
 use Clickstorm\CsFileMetaFill\Utility\FluentImageSourceUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -27,7 +28,6 @@ final class SysFileMetaDataGeneratorService
      * Meant for usage in a Task / CommandController
      *
      * @return int
-     * @throws \Doctrine\DBAL\ConnectionException
      */
     public function execute(): int
     {
@@ -44,9 +44,9 @@ final class SysFileMetaDataGeneratorService
             ->execute()
             ->fetchAll();
 
-        $connection->beginTransaction();
         foreach ($files as $file) {
-            $fluent = FluentImageSourceUtility::getFluentSentence($file['name']);
+            $fluent = OriginalFileNameRepository::findByFinalFileName($file['name']) ??
+                      FluentImageSourceUtility::getFluentSentence($file['name']);
 
             $connection->update(
                 'sys_file_metadata',
@@ -56,12 +56,6 @@ final class SysFileMetaDataGeneratorService
                 ],
                 ['uid' => $file['uid']]
             );
-        }
-
-        try {
-            $connection->commit();
-        } catch (\Exception $e) {
-            $connection->rollBack();
         }
 
         return count($files);
