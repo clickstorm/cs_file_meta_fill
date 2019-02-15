@@ -12,6 +12,7 @@ namespace Clickstorm\CsFileMetaFill\Service;
  */
 
 use Clickstorm\CsFileMetaFill\Domain\Repository\OriginalFileNameRepository;
+use Clickstorm\CsFileMetaFill\Utility\ConfigurationUtility;
 use Clickstorm\CsFileMetaFill\Utility\FluentImageSourceUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
@@ -48,12 +49,18 @@ final class SysFileMetaDataGeneratorService
             $fluent = OriginalFileNameRepository::findByFinalFileName($file['name']) ??
                       FluentImageSourceUtility::getFluentSentence($file['name']);
 
+            $metadata = [
+                'alternative' => $file['alternative'] ?? $fluent,
+            ];
+
+            // Fill title if desired
+            if (ConfigurationUtility::fillTitle()) {
+                $metadata['title'] = $file['title'] ?? $fluent;
+            }
+
             $connection->update(
                 'sys_file_metadata',
-                [
-                    'alternative' => $file['alternative'] ?? $fluent,
-                    'title' => $file['title'] ?? $fluent,
-                ],
+                $metadata,
                 ['uid' => $file['uid']]
             );
         }

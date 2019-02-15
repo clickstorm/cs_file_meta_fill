@@ -13,6 +13,7 @@ namespace Clickstorm\CsFileMetaFill\Hooks;
  */
 
 use Clickstorm\CsFileMetaFill\Domain\Repository\OriginalFileNameRepository;
+use Clickstorm\CsFileMetaFill\Utility\ConfigurationUtility;
 use Clickstorm\CsFileMetaFill\Utility\FluentImageSourceUtility;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Resource\DuplicationBehavior;
@@ -41,13 +42,17 @@ final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProc
         }
 
         $file   = $processedFile->getOriginalFile();
-        $fluent = OriginalFileNameRepository::findByFinalFileName($file->getName()) ??
-                  FluentImageSourceUtility::getFluentSentence($file->getName());
+        $fluent = OriginalFileNameRepository::findByFinalFileName($file->getProperty('name')) ??
+                  FluentImageSourceUtility::getFluentSentence($file->getProperty('name'));
 
         $metaData = [
             'alternative' => $file->getProperty('alternative') ?? $fluent,
-            'title'       => $file->getProperty('title') ?? $fluent,
         ];
+
+        // Only Fill title if desired
+        if (ConfigurationUtility::fillTitle()) {
+            $metaData['title'] = $file->getProperty('title') ?? $fluent;
+        }
 
         $metaData = array_merge($file->_getMetaData(), $metaData);
 
@@ -87,7 +92,7 @@ final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProc
                 GeneralUtility::makeInstance(ConnectionPool::class)->getConnectionForTable('cs_file_meta_fill')
                               ->insert('cs_file_meta_fill', [
                                   'original_filename' => FluentImageSourceUtility::getFluentSentence($file['name']),
-                                  'final_filename'    => $result[$i][0]->getName(),
+                                  'final_filename'    => $result[$i][0]->getProperty('name'),
                               ]);
                 $i++;
             } catch (\Exception $e) {
@@ -96,8 +101,6 @@ final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProc
                 // for now, we will just continue
                 continue;
             }
-
         }
-
     }
 }

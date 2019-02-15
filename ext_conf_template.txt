@@ -1,0 +1,2 @@
+# cat=basic/enable/010; type=boolean; label= Enable Title Fill : Check to fill in title fields for Files
+enableTitleFill = 1

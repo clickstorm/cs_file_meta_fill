@@ -1,0 +1,31 @@
+﻿.. ==================================================
+.. FOR YOUR INFORMATION
+.. --------------------------------------------------
+.. -*- coding: utf-8 -*- with BOM.
+
+.. This is 'Includes.txt'. It is included at the very top of each and
+   every ReST source file in this documentation project (= manual).
+
+
+.. ==================================================
+.. DEFINE SOME TEXT ROLES
+.. --------------------------------------------------
+
+.. role::   typoscript(code)
+
+.. role::   ts(typoscript)
+   :class:  typoscript
+
+.. role::   php(code)
+
+.. highlight:: php
+
+.. |img-1|      image:: /Images/ClickstormLogo.jpg
+   :height: 256
+   :width: 256
+.. :align: center
+.. :alt: clickstorm logo
+.. :border: 0
+.. :name: clickstorm logo
+.. :vspace: 52
+.. :target: http://www.clickstorm.de

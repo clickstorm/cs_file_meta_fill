@@ -1,3 +1,5 @@
 .idea
 .nbproject
 .php_cs.cache
+docker-compose.yml
+*GENERATED*

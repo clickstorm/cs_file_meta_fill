@@ -1,8 +1,9 @@
 {
     "name": "clickstorm/cs-file-meta-fill",
     "type": "typo3-cms-extension",
+    "license": "GPL-3.0",
     "description": "Automatically generate fluent sys_file_metadata like alternative text",
-    "version": "^v1.1.1",
+    "version": "v1.2.0",
     "authors": [
         {
             "name": "Pascale Beier",

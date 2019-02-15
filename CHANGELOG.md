@@ -4,14 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [v1.1.1 (2019-02-11)](https://github.com/clickstorm/cs_file_meta_fill//compare/v1.1.0...v1.1.1)
+## [v1.2.0 (2019-02-15)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.1.1...v1.2.0)
+
+### Added
+
+- Added possibility to disable the automatic population of title fields in the extension settings
+- TER Documentation
+- gitlab-ci configuration
+
+
+### Fixed
+
+- Fixed wrong composer.json version constraint
+
+## [v1.1.1 (2019-02-11)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.1.0...v1.1.1)
 
 ### Added
 
 - composer.json version
 - TER Hook
 
-## [v1.1.0 (2019-02-10)](https://github.com/clickstorm/cs_file_meta_fill//compare/v1.0.1...v1.1.0)
+## [v1.1.0 (2019-02-10)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.0.1...v1.1.0)
 
 ### Added
 
