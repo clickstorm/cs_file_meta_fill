@@ -57,5 +57,6 @@ typo3_9lts 1/2:
 typo3_9lts 2/2:
   <<: *test_php
   image: php:7.3-alpine
+  allow_failure: true
   variables:
     TYPO3_VERSION: ^9.5

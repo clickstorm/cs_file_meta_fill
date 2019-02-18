@@ -19,7 +19,7 @@ e.g. filename: product_red_socks.jpg => alt: Product Red Socks
 
 ## More Information
 
-- [Changelog](CHANGELOG) - Latest Changes
+- [Changelog](CHANGELOG.md) - Latest Changes
 - [TYPO3 Repository](https://extensions.typo3.org/extension/cs_file_meta_fill/) - Official download page
 - [Extension Manual](https://docs.typo3.org/typo3cms/extensions/cs_file_meta_fill/) - Official documentation with all features and configurations 
 - [clickstorm Blog](https://www.clickstorm.de/blog/) - Current information in german
