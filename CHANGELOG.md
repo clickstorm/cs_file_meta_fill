@@ -4,13 +4,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## Unreleased
+
+### Added
+
+- Added official TER Documentation Link
+- Implemented gitlab-ci configuration
+    - php-codesniffer configuration
+    - Adapted composer.json for CI
+    - Added gitlab-ci.yaml
+
+
 ## [v1.2.0 (2019-02-15)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.1.1...v1.2.0)
 
 ### Added
 
 - Added possibility to disable the automatic population of title fields in the extension settings
 - TER Documentation
-- gitlab-ci configuration
 
 
 ### Fixed

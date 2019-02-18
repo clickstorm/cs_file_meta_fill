@@ -1,0 +1,61 @@
+cache:
+  key: "$CI_BUILD_REF_NAME-$CI_BUILD_STAGE"
+  paths:
+    - .composer/
+
+variables:
+  COMPOSER_CACHE_DIR: ".composer"
+  COMPOSER_PROCESS_TIMEOUT: "1800"
+  COMPOSER_ALLOW_SUPERUSER: "1"
+  TYPO3_VERSION: ^8.7
+  TYPO3_PATH_WEB: "$CI_PROJECT_DIR/public"
+  MYSQL_DATABASE: "typo3"
+  MYSQL_ROOT_PASSWORD: "joh316"
+  typo3DatabaseName: "typo3"
+  typo3DatabaseHost: "mysql"
+  typo3DatabaseUsername: "root"
+  typo3DatabasePassword: "joh316"
+
+cgl:
+  image: composer
+  stage: test
+  before_script:
+    - composer require typo3/cms-core="${TYPO3_VERSION}" --ignore-platform-reqs
+  script:
+    - vendor/bin/php-cs-fixer fix --config=Build/.php_cs -v --dry-run --using-cache=no --path-mode=intersection `git diff --name-only --diff-filter=ACMRTUXB $COMMIT_RANGE`
+
+.test: &test_php
+  stage: test
+  services:
+    - mysql:5
+  before_script:
+    - apk --no-cache add bash curl git openssh openssl parallel
+    - docker-php-ext-install mysqli
+    - wget https://composer.github.io/installer.sig -O - -q | tr -d '\n' > installer.sig
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php -r "if (hash_file('SHA384', 'composer-setup.php') === file_get_contents('installer.sig')) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    - php composer-setup.php --no-ansi --install-dir=/usr/bin --filename=composer
+    - php -r "unlink('composer-setup.php'); unlink('installer.sig');"
+    - composer require typo3/cms-core="${TYPO3_VERSION}"
+  script:
+    - find . -type f -name \*.php ! -path "./public/*" ! -path "./vendor/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null
+    - vendor/bin/phpunit --colors  -c vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit/
+    - find 'Tests/Functional' -wholename '*Test.php' | parallel --gnu 'echo; echo "Running functional test suite {}"; vendor/bin/phpunit --colors  -c vendor/nimut/testing-framework/res/Configuration/FunctionalTests.xml {}'
+
+typo3_8lts 1/1:
+  <<: *test_php
+  image: php:7.1-alpine
+  variables:
+    TYPO3_VERSION: ^8.7
+
+typo3_9lts 1/2:
+  <<: *test_php
+  image: php:7.2-alpine
+  variables:
+    TYPO3_VERSION: ^9.5
+
+typo3_9lts 2/2:
+  <<: *test_php
+  image: php:7.3-alpine
+  variables:
+    TYPO3_VERSION: ^9.5

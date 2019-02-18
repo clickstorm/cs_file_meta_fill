@@ -3,7 +3,7 @@
     "type": "typo3-cms-extension",
     "license": "GPL-3.0",
     "description": "Automatically generate fluent sys_file_metadata like alternative text",
-    "version": "v1.2.0",
+    "version": "v1.2.1-dev",
     "authors": [
         {
             "name": "Pascale Beier",
@@ -32,5 +32,16 @@
     "replace": {
         "cs_file_meta_fill": "self.version",
         "typo3-ter/cs-file-meta-fill": "self.version"
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "mkdir -p public/typo3conf/ext/",
+            "[ -L public/typo3conf/ext/cs_file_meta_fill ] || ln -snvf ../../../. public/typo3conf/ext/cs_file_meta_fill"
+        ]
+    },
+    "extra": {
+        "typo3/cms": {
+            "web-dir": "public"
+        }
     }
 }

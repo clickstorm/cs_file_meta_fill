@@ -3,6 +3,7 @@
 namespace Clickstorm\CsFileMetaFill\Tests\Unit;
 
 use Nimut\TestingFramework\TestCase\UnitTestCase;
+use \DateTime;
 use Clickstorm\CsFileMetaFill\Utility\FluentImageSourceUtility;
 
 final class FluentImageSourceUtilityTest extends UnitTestCase

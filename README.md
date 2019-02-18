@@ -1,6 +1,4 @@
-# cs_file_meta_fill
-
-## What does it do?
+# [clickstorm] File Meta Fill
 
 Automatically fills sys_file_metadata from file names. For TYPO3 v8 and v9.
 
@@ -19,6 +17,9 @@ e.g. filename: product_red_socks.jpg => alt: Product Red Socks
 - Upload or edit any file
 - Close and reopen and see the magic!
 
-## Changelog
+## More Information
 
-You can view the Changelog at [CHANGELOG.md](CHANGELOG.md)
+- [Changelog](CHANGELOG) - Latest Changes
+- [TYPO3 Repository](https://extensions.typo3.org/extension/cs_file_meta_fill/) - Official download page
+- [Extension Manual](https://docs.typo3.org/typo3cms/extensions/cs_file_meta_fill/) - Official documentation with all features and configurations 
+- [clickstorm Blog](https://www.clickstorm.de/blog/) - Current information in german
