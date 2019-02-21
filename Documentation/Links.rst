@@ -21,7 +21,7 @@ Links
 	https://github.com/clickstorm/cs_file_meta_fill
 
 :Twitter:
-	`@clickstorm <https://twitter.comclickstorm>`__
+	https://twitter.com/clickstorm_gmbH
 
 :Website:
 	https://www.clickstorm.de
