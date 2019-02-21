@@ -15,7 +15,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class ConfigurationUtility
- * @package Clickstorm\CsFileMetaFill\Utility
  */
 final class ConfigurationUtility
 {
@@ -30,8 +29,9 @@ final class ConfigurationUtility
     public static function getExtensionConfiguration(): array
     {
         if (empty(static::$extConf)) {
-            if (class_exists('\TYPO3\CMS\Core\Configuration\ExtensionConfiguration')) {
-                return static::$extConf = GeneralUtility::makeInstance('\TYPO3\CMS\Core\Configuration\ExtensionConfiguration')
+            $extensionConfiguration = 'TYPO3\CMS\Core\Configuration\ExtensionConfiguration';
+            if (class_exists($extensionConfiguration)) {
+                return static::$extConf = GeneralUtility::makeInstance($extensionConfiguration)
                     ->get('cs_file_meta_fill');
             }
 
