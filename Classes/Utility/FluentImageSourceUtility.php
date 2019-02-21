@@ -15,7 +15,6 @@ use Doctrine\Common\Inflector\Inflector;
 
 /**
  * Class FluentImageSourceUtility
- * @package Clickstorm\CsFileMetaFill\Utility
  */
 final class FluentImageSourceUtility
 {

@@ -18,7 +18,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class SysFileMetaDataGeneratorService
- * @package Clickstorm\CsFileMetaFill\Service
  */
 final class SysFileMetaDataGeneratorService
 {

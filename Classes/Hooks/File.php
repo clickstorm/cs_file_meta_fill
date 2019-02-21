@@ -21,7 +21,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class File
- * @package Clickstorm\CsFileMetaFill\Hooks
  */
 final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProcessDataHookInterface
 {
@@ -37,7 +36,7 @@ final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProc
     public function postFileProcess($fileProcessingService, $driver, $processedFile)
     {
         // Exit early if neither alternative nor title are NULL.
-        if ( ! empty($processedFile->getProperty('alternative')) && ! empty($processedFile->getProperty('title'))) {
+        if (! empty($processedFile->getProperty('alternative')) && ! empty($processedFile->getProperty('title'))) {
             return;
         }
 

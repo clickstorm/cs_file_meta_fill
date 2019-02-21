@@ -16,9 +16,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
  * Class OriginalFileNameRepository
- * @package Clickstorm\CsFileMetaFill\Domain\Repository
- *
- * This is not an actual Extbase Repository
  */
 final class OriginalFileNameRepository
 {
@@ -27,7 +24,7 @@ final class OriginalFileNameRepository
      *
      * @return string|null
      */
-    public static function findByFinalFileName(string $finalFileName)
+    public static function findByFinalFileName(string $finalFileName): ?string
     {
         $q = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('cs_file_meta_fill');
 

@@ -17,7 +17,6 @@ use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 
 /**
  * Class UpdateMetadataCommandController
- * @package Clickstorm\CsFileMetaFill\Command
  *
  * @cli
  */
