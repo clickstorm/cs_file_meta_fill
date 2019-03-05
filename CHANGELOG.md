@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [v1.2.2 (2019-03-05)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.2.1...v1.2.2)
+
+### Fixed
+
+- Fixed a regression introduced in v1.2.0 which caused the OriginalFileNameRepository to return a boolean
+ instead of string|null when no original filename was found.
+
 ## [v1.2.1 (2019-02-21)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.2.0...v1.2.1)
 
 ### Fixed

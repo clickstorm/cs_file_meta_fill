@@ -7,7 +7,7 @@ conf.py:
   copyright: 2019
   project: File Meta Fill
   version: 1
-  release: 1.2.1
+  release: 1.2.2
   html_theme_options:
     github_repository: clickstorm/cs_file_meta_fill
     github_branch: master
