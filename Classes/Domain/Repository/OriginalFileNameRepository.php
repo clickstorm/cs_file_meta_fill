@@ -34,6 +34,8 @@ final class OriginalFileNameRepository
                 $q->expr()->eq('final_filename', $q->createNamedParameter($finalFileName))
             );
 
-        return $q->execute()->fetchColumn() ?? null;
+        $result = $q->execute()->fetchColumn();
+
+        return $result !== false ? $result : null;
     }
 }
