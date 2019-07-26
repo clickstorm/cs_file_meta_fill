@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [v1.2.3 (2019-07-26)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.2.2...v1.2.3)
+
+> This Release resolves an issue with non-composer TYPO3 projects.
+
+### Fixed
+
+- Removed doctrine/inflector dependency, since we literally only used one method and it broke non-composer usage
+
+### Miscellaneous
+
+- Disallow failure of php7.3 tests
+- fixed composer.json deprecation
+- updated php-cs-fixer ruleset to match current TYPO3 Core ruleset
+
 ## [v1.2.2 (2019-03-05)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.2.1...v1.2.2)
 
 ### Fixed

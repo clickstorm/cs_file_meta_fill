@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php declare(strict_types = 1);
 namespace Clickstorm\CsFileMetaFill\Utility;
 
 /*
@@ -10,8 +10,6 @@ namespace Clickstorm\CsFileMetaFill\Utility;
  *  (c) 2019 Pascale Beier <beier@clickstorm.de>, clickstorm GmbH
  *
  */
-
-use Doctrine\Common\Inflector\Inflector;
 
 /**
  * Class FluentImageSourceUtility
@@ -26,15 +24,16 @@ final class FluentImageSourceUtility
      */
     public static function getFluentSentence(string $source): string
     {
+
         // Normalize all special chars to _ and replace it with a space
         // Remove more than one space following another space
         $sentence = preg_replace(
             ['/_/', '/-/', '/\s{2,}/'],
             ' ',
-            Inflector::tableize(pathinfo($source)['filename'] ?? $source)
+            strtolower(preg_replace('~(?<=\\w)([A-Z])~', '_$1', pathinfo($source)['filename'] ?? $source))
         );
 
         // Uppercase all words
-        return Inflector::ucwords($sentence);
+        return ucwords($sentence);
     }
 }

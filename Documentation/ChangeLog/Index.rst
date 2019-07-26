@@ -11,4 +11,4 @@
 ChangeLog
 =========
 
-Please take a look here: https://github.com/clickstorm/cs_file_meta_fill/blob/master/CHANGELOG.md
+Please take at the Changelog here: https://github.com/clickstorm/cs_file_meta_fill/blob/master/CHANGELOG.md
