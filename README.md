@@ -14,6 +14,7 @@ e.g. filename: product_red_socks.jpg => alt: Product Red Socks
 
 - `composer req clickstorm/cs-file-meta-fill`
 - Activate the extension
+- Optionally: Configure the extension via extension settings
 - Upload or edit any file
 - Close and reopen and see the magic!
 
