@@ -7,10 +7,10 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Pascale Beier',
     'author_email' => 'beier@clickstorm.de',
     'state' => 'stable',
-    'version' => '1.2.4',
+    'version' => '2.0.0-dev',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-9.5.99',
+            'typo3' => '10.4.0-10.4.99',
         ],
         'conflicts' => [],
         'suggests' => [],
