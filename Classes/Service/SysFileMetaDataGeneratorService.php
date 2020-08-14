@@ -64,6 +64,6 @@ final class SysFileMetaDataGeneratorService
             );
         }
 
-        return count($files);
+        return 0;
     }
 }
