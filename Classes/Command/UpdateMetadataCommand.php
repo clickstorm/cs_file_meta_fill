@@ -12,16 +12,26 @@ namespace Clickstorm\CsFileMetaFill\Command;
  */
 
 use Clickstorm\CsFileMetaFill\Service\SysFileMetaDataGeneratorService;
+use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Mvc\Controller\CommandController;
 
 /**
  * Class UpdateMetadataCommandController
  *
  * @cli
  */
-final class UpdateMetadataCommandController extends CommandController
+final class UpdateMetadataCommand extends Command
 {
+    /**
+     * Configure the command by defining the name, options and arguments
+     */
+    protected function configure(): void
+    {
+        $this->setDescription('Fills empty file Metadata with information from the file name.');
+    }
+
     /**
      * @see SysFileMetaDataGeneratorService
      *
@@ -29,7 +39,7 @@ final class UpdateMetadataCommandController extends CommandController
      *
      * @throws \Doctrine\DBAL\ConnectionException
      */
-    public function runCommand()
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         return GeneralUtility::makeInstance(SysFileMetaDataGeneratorService::class)->execute();
     }

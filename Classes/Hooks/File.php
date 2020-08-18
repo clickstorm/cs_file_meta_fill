@@ -53,12 +53,10 @@ final class File implements \TYPO3\CMS\Core\Utility\File\ExtendedFileUtilityProc
             $metaData['title'] = $file->getProperty('title') ?? $fluent;
         }
 
-        $metaData = array_merge($file->_getMetaData(), $metaData);
+        $metaData = array_merge($file->getMetaData()->get(), $metaData);
 
-        $file->_updateMetaDataProperties($metaData);
-
-        $metaDataRepository = \TYPO3\CMS\Core\Resource\Index\MetaDataRepository::getInstance();
-        $metaDataRepository->update($file->getUid(), $metaData);
+        $file->getMetaData()->add($metaData);
+        $file->getMetaData()->save();
     }
 
     /**
