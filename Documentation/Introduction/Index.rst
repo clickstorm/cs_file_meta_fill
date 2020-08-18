@@ -25,7 +25,7 @@ Features
 - Zero Configuration necessary
 - Fill File Alternative and Title Fields
 - Stores original file names for best results (to keep Umlauts and Characters sanitized)
-- There is a **Scheduler Task** included (Extbase Command Controller) to batch process files missing metadata information
+- There is a **Scheduler Task** included (Symfony Command) to batch process files missing metadata information
 
 Examples
 --------

@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [v2.0.0 (2020-08-18)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.2.4...v2.0.0)
+
+> TYPO3 v10.4 compatibility
+
+### Added
+
+- Symfony Console Command to fill empty file metadata with information from the file name
+
+### Removed
+
+- Extbase Command Controller to fill empty file metadata with information from the file name
+
+### Miscellaneous
+
+- update constraints in ext_emconf.php and composer.json for TYPO3 v10
+
 ## [v1.2.3 (2019-07-26)](https://github.com/clickstorm/cs_file_meta_fill/compare/v1.2.2...v1.2.3)
 
 > This Release resolves an issue with non-composer TYPO3 projects.
