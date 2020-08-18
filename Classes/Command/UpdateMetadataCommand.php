@@ -29,9 +29,8 @@ final class UpdateMetadataCommand extends Command
      */
     protected function configure(): void
     {
-        $this->setDescription('Fills empty file Metadata with information of the file name.');
+        $this->setDescription('Fills empty file Metadata with information from the file name.');
     }
-
 
     /**
      * @see SysFileMetaDataGeneratorService
